@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Étudiant en Informatique</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-category {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .skill-category h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        .project-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            background-color: #e2e8f0;
+            color: var(--text-main);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #1e293b;
+            color: white;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Raitsarevo Randi Lucio</h1>
+        <p>Étudiant en Informatique | Systèmes, Réseaux & Développement</p>
+        <p>📍 Lyon, France</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECTION À PROPOS -->
+        <section>
+            <h2>À propos</h2>
+            <p>Passionné par l'infrastructure informatique, la cybersécurité et le développement. Actuellement étudiant dans la région lyonnaise, j'aime concevoir et sécuriser des architectures réseaux, administrer des environnements virtualisés et développer des scripts d'automatisation. Mon objectif est de combiner des compétences transversales (SysAdmin, réseaux, code) pour résoudre des problèmes techniques complexes.</p>
+        </section>
+
+        <!-- SECTION COMPÉTENCES -->
+        <section>
+            <h2>Compétences Techniques</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Virtualisation & Systèmes</h3>
+                    <ul>
+                        <li>Linux (Ubuntu, WSL)</li>
+                        <li>Windows Server (Active Directory, OUs)</li>
+                        <li>Proxmox VE & LXC</li>
+                        <li>VMware Workstation & Hyper-V</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Réseaux & Sécurité</h3>
+                    <ul>
+                        <li>Cisco Packet Tracer (Routage OSPF)</li>
+                        <li>Hardening de serveurs (SSH, UFW)</li>
+                        <li>Audit de vulnérabilités (Metasploitable)</li>
+                        <li>Sensibilisation RGPD / Loi Informatique et Libertés</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Développement & Scripting</h3>
+                    <ul>
+                        <li>Python, C, C#, Go</li>
+                        <li>Scripts Bash & PowerShell</li>
+                        <li>Unity 3D (C# Scripting)</li>
+                        <li>Git & Visual Studio Code</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PROJETS -->
+        <section>
+            <h2>Projets Réalisés</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>Déploiement d'Infrastructure Virtuelle & Serveur Dédié</h3>
+                    <p>Mise en place d'un hyperviseur Proxmox VE hébergeant plusieurs machines virtuelles. Déploiement et configuration d'un serveur de jeu (Minetest) sous Ubuntu avec gestion des services systemd, ouverture sécurisée des ports et optimisation des ressources allouées.</p>
+                    <div class="tags">
+                        <span class="tag">Proxmox VE</span>
+                        <span class="tag">Linux/Ubuntu</span>
+                        <span class="tag">Systemd</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Administration Réseau & Active Directory</h3>
+                    <p>Maquettage complet d'architectures réseaux d'entreprise sur Cisco Packet Tracer incluant du routage dynamique OSPF et la configuration d'interfaces loopback. En parallèle, mise en place d'un domaine Windows Server avec gestion d'Active Directory et des Unités Organisationnelles.</p>
+                    <div class="tags">
+                        <span class="tag">Cisco Packet Tracer</span>
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">Réseau</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Sécurisation de Serveurs (Hardening)</h3>
+                    <p>Projet de cybersécurité axé sur l'audit et la sécurisation. Analyse de vulnérabilités sur un environnement Metasploitable 2, configuration stricte des accès distants (durcissement SSH) et mise en place de règles de pare-feu avec UFW.</p>
+                    <div class="tags">
+                        <span class="tag">Cybersécurité</span>
+                        <span class="tag">Metasploitable</span>
+                        <span class="tag">UFW / SSH</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Développement d'un Jeu 3D (Type Runner)</h3>
+                    <p>Création d'un jeu vidéo avec le moteur Unity. Programmation des scripts en C# pour gérer les contrôleurs du personnage, l'interaction avec les objets via les colliders (Triggers), et paramétrage des composants Animator pour la gestion des vitesses et animations.</p>
+                    <div class="tags">
+                        <span class="tag">Unity 3D</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Game Dev</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Automatisation des processus de compilation</h3>
+                    <p>Création d'un script d'automatisation personnalisé sous PowerShell intégré à Visual Studio Code (`tasks.json`) permettant de compiler du code C via GCC, avec déclenchement d'alertes sonores spécifiques en cas d'erreur de compilation.</p>
+                    <div class="tags">
+                        <span class="tag">C / GCC</span>
+                        <span class="tag">PowerShell</span>
+                        <span class="tag">VS Code</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- PIED DE PAGE / CONTACT -->
+    <footer>
+        <h2>Me Contacter</h2>
+        <p>Email : <a href="raitsarevolucio@gmail.com" style="color: #60a5fa;">raitsarevolucio@gmail.com</a></p>
+        <p>
+            <a href="https://github.com/Randilucio" target="_blank" style="color: white; margin: 0 10px;">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/raitsarevo-randi-lucio-b91206403/" target="_blank" style="color: white; margin: 0 10px;">LinkedIn</a>
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #94a3b8;">© 2026 - Portfolio créé par Raitsarevo Randi Lucio</p>
+    </footer>
+
+</body>
+</html>
