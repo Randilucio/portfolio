@@ -3,109 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Étudiant en Informatique</title>
+    <title>Portfolio | Raitsarevo Randi Lucio - SysAdmin & Dev</title>
     <style>
+        /* Modern CSS Variables */
         :root {
-            --primary-color: #2563eb;
-            --bg-color: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --card-bg: #ffffff;
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-color: #10b981;
         }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
         }
+
+        /* Modern Header */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 100%;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 1;
+        }
+
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 10px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 0.5rem auto;
         }
+
+        /* Container & Layout */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
+
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
+
         h2 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
+
+        h2::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border-color);
+        }
+
+        /* Skills Badges */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
+
         .skill-category {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
+
         .skill-category h3 {
-            margin-top: 0;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Project Cards Modernized */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 3rem;
         }
+
         .project-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary-color);
+            background: var(--surface-color);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
         .project-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
         }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            background: #0f172a;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-media {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .project-media:hover img {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        .media-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(15, 23, 42, 0.9);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
+            padding: 1.5rem 2rem;
+            background: var(--surface-color);
         }
+
         .tag {
-            background-color: #e2e8f0;
-            color: var(--text-main);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            background-color: #334155;
+            color: #e2e8f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
+
+        /* Footer */
         footer {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem;
             text-align: center;
-            padding: 2rem;
-            background-color: #1e293b;
-            color: white;
         }
-        a {
-            color: var(--primary-color);
+
+        footer h2 {
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        footer h2::after {
+            display: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-main);
             text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            background: #334155;
+            font-weight: 500;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -113,8 +282,8 @@
 
     <header>
         <h1>Raitsarevo Randi Lucio</h1>
-        <p>Étudiant en Informatique | Systèmes, Réseaux & Développement</p>
-        <p>📍 Lyon, France</p>
+        <p>Expertise en Administration Systèmes, Résolution d'Incidents & Développement</p>
+        <p style="color: var(--primary-color); font-weight: 600;">📍 Lyon, France</p>
     </header>
 
     <div class="container">
@@ -122,95 +291,137 @@
         <!-- SECTION À PROPOS -->
         <section>
             <h2>À propos</h2>
-            <p>Passionné par l'infrastructure informatique, la cybersécurité et le développement. Actuellement étudiant dans la région lyonnaise, j'aime concevoir et sécuriser des architectures réseaux, administrer des environnements virtualisés et développer des scripts d'automatisation. Mon objectif est de combiner des compétences transversales (SysAdmin, réseaux, code) pour résoudre des problèmes techniques complexes.</p>
+            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 800px;">
+                Étudiant en informatique basé dans la région lyonnaise, je me spécialise dans la convergence entre l'infrastructure (SysAdmin/Réseaux) et le développement de solutions. J'excelle dans le diagnostic de pannes complexes, la sécurisation des accès serveurs, et l'automatisation des environnements de travail. Mon approche "problem-solving" me permet d'intervenir aussi bien sur du code (C#, Python) que sur la réparation de systèmes Linux ou Windows Server.
+            </p>
         </section>
 
-        <!-- SECTION COMPÉTENCES -->
+        <!-- SECTION COMPÉTENCES (MODERNISÉE) -->
         <section>
-            <h2>Compétences Techniques</h2>
+            <h2>Stack Technique & Compétences</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Virtualisation & Systèmes</h3>
-                    <ul>
-                        <li>Linux (Ubuntu, WSL)</li>
-                        <li>Windows Server (Active Directory, OUs)</li>
-                        <li>Proxmox VE & LXC</li>
-                        <li>VMware Workstation & Hyper-V</li>
-                    </ul>
+                    <h3>SysAdmin & Dépannage</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux (Ubuntu/Arch)</span>
+                        <span class="skill-tag">WSL Configuration</span>
+                        <span class="skill-tag">Gestionnaire de paquets (APT, Pacman)</span>
+                        <span class="skill-tag">Windows Server (AD DS, DNS)</span>
+                        <span class="skill-tag">Systemd Services</span>
+                    </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Réseaux & Sécurité</h3>
-                    <ul>
-                        <li>Cisco Packet Tracer (Routage OSPF)</li>
-                        <li>Hardening de serveurs (SSH, UFW)</li>
-                        <li>Audit de vulnérabilités (Metasploitable)</li>
-                        <li>Sensibilisation RGPD / Loi Informatique et Libertés</li>
-                    </ul>
+                    <h3>Cybersécurité & Réseaux</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Hardening SSH (ed25519)</span>
+                        <span class="skill-tag">Configuration UFW Firewalls</span>
+                        <span class="skill-tag">Routage (OSPF)</span>
+                        <span class="skill-tag">Audit de Vulnérabilités</span>
+                        <span class="skill-tag">Diagnostic réseau TCP/IP</span>
+                    </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Développement & Scripting</h3>
-                    <ul>
-                        <li>Python, C, C#, Go</li>
-                        <li>Scripts Bash & PowerShell</li>
-                        <li>Unity 3D (C# Scripting)</li>
-                        <li>Git & Visual Studio Code</li>
-                    </ul>
+                    <h3>Développement & Automatisation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Automatisation VS Code (tasks.json)</span>
+                        <span class="skill-tag">Python & Scripts Bash</span>
+                        <span class="skill-tag">PowerShell Scripting</span>
+                        <span class="skill-tag">C# & Unity 3D</span>
+                        <span class="skill-tag">C, Go</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION PROJETS -->
+        <!-- SECTION PROJETS & INTERVENTIONS -->
         <section>
-            <h2>Projets Réalisés</h2>
+            <h2>Labs, Projets & Résolution d'Incidents</h2>
             <div class="projects-grid">
-                
-                <div class="project-card">
-                    <h3>Déploiement d'Infrastructure Virtuelle & Serveur Dédié</h3>
-                    <p>Mise en place d'un hyperviseur Proxmox VE hébergeant plusieurs machines virtuelles. Déploiement et configuration d'un serveur de jeu (Minetest) sous Ubuntu avec gestion des services systemd, ouverture sécurisée des ports et optimisation des ressources allouées.</p>
-                    <div class="tags">
-                        <span class="tag">Proxmox VE</span>
-                        <span class="tag">Linux/Ubuntu</span>
-                        <span class="tag">Systemd</span>
-                    </div>
-                </div>
 
+                <!-- NOUVEAU PROJET 1 : Diagnostic SSH / UFW -->
                 <div class="project-card">
-                    <h3>Administration Réseau & Active Directory</h3>
-                    <p>Maquettage complet d'architectures réseaux d'entreprise sur Cisco Packet Tracer incluant du routage dynamique OSPF et la configuration d'interfaces loopback. En parallèle, mise en place d'un domaine Windows Server avec gestion d'Active Directory et des Unités Organisationnelles.</p>
-                    <div class="tags">
-                        <span class="tag">Cisco Packet Tracer</span>
-                        <span class="tag">Windows Server</span>
-                        <span class="tag">Réseau</span>
+                    <div class="project-content">
+                        <h3>Diagnostic et Durcissement d'Accès Distants (SSH / UFW)</h3>
+                        <p>Intervention sur des problèmes de refus de connexion (Connection Refused / Timed Out) entre un hôte Windows et une machine virtuelle Ubuntu. Génération de clés cryptographiques modernes (ed25519) via PowerShell, analyse des statuts `systemctl` du service OpenSSH, et ouverture des flux TCP via le pare-feu UFW pour rétablir la communication.</p>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Sécurisation de Serveurs (Hardening)</h3>
-                    <p>Projet de cybersécurité axé sur l'audit et la sécurisation. Analyse de vulnérabilités sur un environnement Metasploitable 2, configuration stricte des accès distants (durcissement SSH) et mise en place de règles de pare-feu avec UFW.</p>
-                    <div class="tags">
-                        <span class="tag">Cybersécurité</span>
-                        <span class="tag">Metasploitable</span>
-                        <span class="tag">UFW / SSH</span>
+                    <div class="project-gallery">
+                        <div class="project-media">
+                            <img src="Screenshot 2026-04-15 095822_2.jpg" alt="Erreur SSH et Analyse Systemd">
+                            <div class="media-caption">Diagnostic : Connection refused & vérification d'état via systemctl status ssh</div>
+                        </div>
+                        <div class="project-media">
+                            <img src="Screenshot 2026-04-15 100029_2.jpg" alt="Résolution via UFW">
+                            <div class="media-caption">Résolution : Modification des règles de pare-feu (sudo ufw allow 22/tcp) et connexion réussie</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Développement d'un Jeu 3D (Type Runner)</h3>
-                    <p>Création d'un jeu vidéo avec le moteur Unity. Programmation des scripts en C# pour gérer les contrôleurs du personnage, l'interaction avec les objets via les colliders (Triggers), et paramétrage des composants Animator pour la gestion des vitesses et animations.</p>
                     <div class="tags">
-                        <span class="tag">Unity 3D</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Game Dev</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Automatisation des processus de compilation</h3>
-                    <p>Création d'un script d'automatisation personnalisé sous PowerShell intégré à Visual Studio Code (`tasks.json`) permettant de compiler du code C via GCC, avec déclenchement d'alertes sonores spécifiques en cas d'erreur de compilation.</p>
-                    <div class="tags">
-                        <span class="tag">C / GCC</span>
+                        <span class="tag">Troubleshooting N2/N3</span>
+                        <span class="tag">OpenSSH</span>
+                        <span class="tag">UFW Firewall</span>
                         <span class="tag">PowerShell</span>
+                    </div>
+                </div>
+
+                <!-- NOUVEAU PROJET 2 : Gestion de paquets et environnement Linux / WSL -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Déploiement et Dépannage d'Environnements Linux & WSL</h3>
+                        <p>Administration avancée d'environnements Linux (machine virtuelle et Windows Subsystem for Linux). Gestion des conflits d'installation, résolution d'erreurs de paquets système via `apt` et `pacman`, et installation d'outils tiers (mpv, git, ani-cli) nécessitant le diagnostic d'incompatibilités d'exécutables (binaires Windows .exe vs Linux).</p>
+                    </div>
+                    <div class="project-gallery">
+                        <div class="project-media">
+                            <img src="Screenshot 2026-04-21 094616.png" alt="Mise à jour APT et erreur Pacman">
+                            <div class="media-caption">Maintenance système : Mise à jour des dépôts Ubuntu (APT) et gestion d'erreurs d'affichage X11</div>
+                        </div>
+                        <div class="project-media">
+                            <img src="Screenshot 2026-04-21 150134_2.png" alt="Installation de dépendances ani-cli">
+                            <div class="media-caption">Débogage de dépendances : Résolution des erreurs d'accès aux binaires locaux (mpv / git)</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Ubuntu / Debian</span>
+                        <span class="tag">WSL</span>
+                        <span class="tag">Package Management (APT)</span>
+                        <span class="tag">CLI Tools</span>
+                    </div>
+                </div>
+
+                <!-- NOUVEAU PROJET 3 : Automatisation VS Code -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Automatisation de Build et Environnement de Développement</h3>
+                        <p>Configuration personnalisée de l'environnement de développement intégré (IDE) Visual Studio Code. Création et configuration de tâches JSON d'automatisation (`tasks.json`) pour l'exécution d'instructions de compilation `msbuild` (intégration continue locale).</p>
+                    </div>
+                    <div class="project-gallery">
+                        <div class="project-media" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                            <img src="Screenshot 2026-04-21 142124_2.png" alt="Configuration tasks.json VS Code">
+                            <div class="media-caption">Scripting JSON : Automatisation des tâches de compilation via msbuild</div>
+                        </div>
+                    </div>
+                    <div class="tags">
                         <span class="tag">VS Code</span>
+                        <span class="tag">DevOps / CI Locale</span>
+                        <span class="tag">JSON Scripting</span>
+                        <span class="tag">MSBuild</span>
+                    </div>
+                </div>
+
+                <!-- PROJET EXISTANT CONSERVÉ : AD & VMware -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Administration Windows Server & Active Directory</h3>
+                        <p>Mise en place d'un domaine d'entreprise virtualisé sous VMware Workstation. Configuration des rôles critiques (AD DS, DNS), gestion des unités organisationnelles et supervision de la sécurité du domaine via l'observateur d'événements.</p>
+                    </div>
+                    <div class="project-gallery">
+                        <div class="project-media">
+                            <img src="Screenshot 2026-02-20 172324.png" alt="Gestionnaire de serveur Windows">
+                            <div class="media-caption">Tableau de bord : Déploiement AD DS et DNS actifs sur Windows Server 2022</div>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Windows Server 2022</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">VMware</span>
                     </div>
                 </div>
 
@@ -221,13 +432,13 @@
 
     <!-- PIED DE PAGE / CONTACT -->
     <footer>
-        <h2>Me Contacter</h2>
-        <p>Email : <a href="raitsarevolucio@gmail.com" style="color: #60a5fa;">raitsarevolucio@gmail.com</a></p>
-        <p>
-            <a href="https://github.com/Randilucio" target="_blank" style="color: white; margin: 0 10px;">GitHub</a> | 
-            <a href="https://www.linkedin.com/in/raitsarevo-randi-lucio-b91206403/" target="_blank" style="color: white; margin: 0 10px;">LinkedIn</a>
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 2rem; color: #94a3b8;">© 2026 - Portfolio créé par Raitsarevo Randi Lucio</p>
+        <h2>Prêt à collaborer ?</h2>
+        <div class="social-links">
+            <a href="mailto:raitsarevolucio@gmail.com">📧 raitsarevolucio@gmail.com</a>
+            <a href="https://github.com/Randilucio" target="_blank">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/raitsarevo-randi-lucio-b91206403/" target="_blank">💼 LinkedIn</a>
+        </div>
+        <p class="footer-copyright">© 2026 - Portfolio conçu et développé par Raitsarevo Randi Lucio.</p>
     </footer>
 
 </body>
